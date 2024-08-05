@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simon Says</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .button-container {
+            margin-top: 1rem;
+        }
+        .button-container button {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-container button.red {
+            background-color: #ff4c4c;
+            color: white;
+        }
+        .button-container button.green {
+            background-color: #4caf50;
+            color: white;
+        }
+        .button-container button.blue {
+            background-color: #2196f3;
+            color: white;
+        }
+        .button-container button.yellow {
+            background-color: #ffeb3b;
+            color: black;
+        }
+        .button-container button:hover {
+            opacity: 0.8;
+        }
+        .button-container button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simon Says</h1>
+        <p>Steps left: {{ steps_left }}</p>
+        <p>Which color just lit up?</p>
+        <form action="/select_color" method="POST">
+            <input type="hidden" name="step" value="{{ step }}">
+            <div class="button-container">
+                <button type="submit" name="color" value="Red" class="red">Red</button>
+                <button type="submit" name="color" value="Green" class="green">Green</button>
+                <button type="submit" name="color" value="Blue" class="blue">Blue</button>
+                <button type="submit" name="color" value="Yellow" class="yellow">Yellow</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
